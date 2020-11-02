@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class GoalBehavior : MonoBehaviour
 {
+	private bool hit = true;
     void OnCollisionEnter(Collision collision)
     {
        if(collision.gameObject.name == "Marble")
        {
-             Destroy(this.gameObject);
-             Debug.Log("Item collected!");
-             GameBehavior.instance.goalsCollected++;
+       		if (hit)
+            {
+            	GameBehavior.instance.goalsCollected++;
+            }
+       		hit = false;
+            Destroy(this.gameObject);
+            Debug.Log("Collision: " + gameObject.name);
         }
     }
 }
