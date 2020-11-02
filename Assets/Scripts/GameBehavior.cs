@@ -29,10 +29,6 @@ public class GameBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool endTrigger = false;
-
-
-
         if (marbleHealth <= 0) 
         {
             if (Time.timeScale == 1)
