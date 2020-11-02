@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game : MonoBehaviour
+public class GameBehavior : MonoBehaviour
 {
-
-	public float marbleHealth = 100;
-	public float goalsCollected = 0;
+    public static GameBehavior instance;
+	public float marbleHealth;
+	public float goalsCollected;
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance = this;
+        instance.marbleHealth = 100;
+        instance.goalsCollected = 0;
     }
 
     // Update is called once per frame

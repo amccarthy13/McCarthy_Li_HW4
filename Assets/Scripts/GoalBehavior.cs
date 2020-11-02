@@ -7,9 +7,10 @@ public class GoalBehavior : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
        if(collision.gameObject.name == "Marble")
-        {
+       {
              Destroy(this.gameObject);
              Debug.Log("Item collected!");
-         }
+             GameBehavior.instance.goalsCollected++;
+        }
     }
 }

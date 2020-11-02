@@ -8,7 +8,7 @@ public class BlastBehavior : MonoBehaviour
  
     void Start()
     {
-        Destroy(this, 3f);
+        Destroy(this, 3);
     }
 
 }

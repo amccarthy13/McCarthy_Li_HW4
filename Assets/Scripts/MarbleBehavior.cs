@@ -29,7 +29,10 @@ public class MarbleBehavior : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
-        if(collision.game)
+        if (collision.gameObject.name == "Obstacle" || collision.gameObject.name == "X_Mover" || collision.gameObject.name == "Z_Mover")
+        {
+           GameBehavior.instance.marbleHealth -= 10;
+        }
     }
 
     void Update()
@@ -54,6 +57,7 @@ public class MarbleBehavior : MonoBehaviour
             instProjectile.transform.position = this.transform.position + this.transform.forward;
             Rigidbody instProjectileRB = instProjectile.GetComponent<Rigidbody>();
             instProjectileRB.AddForce(this.transform.forward * shootSpeed);
+            Destroy(instProjectile, 3f);
         }
     }
     
